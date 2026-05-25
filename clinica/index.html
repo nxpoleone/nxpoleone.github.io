@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clínica Médica</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: #1a1a1a;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      border-bottom: 0.5px solid #e0e0e0;
+      background: #fff;
+    }
+
+    .logo {
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #1a1a1a;
+      letter-spacing: 0.3px;
+    }
+
+    .logo span { color: #1a6b5a; }
+
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { color: #666; font-size: 14px; text-decoration: none; }
+    .nav-links a:hover { color: #1a6b5a; }
+
+    .btn-nav {
+      background: #1a6b5a;
+      color: #fff;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 13px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .hero {
+      background: #f0f7f5;
+      padding: 3.5rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-left h1 {
+      font-family: 'Lora', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+      color: #1a1a1a;
+    }
+
+    .hero-left h1 em { color: #1a6b5a; font-style: normal; }
+
+    .hero-left p {
+      color: #666;
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: #1a6b5a;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #1a6b5a;
+      border: 1px solid #1a6b5a;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .hero-card {
+      background: #fff;
+      border: 0.5px solid #d0e8e3;
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+
+    .hero-card-title {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .doctor-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 0.5px solid #e0e0e0;
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #d0ede6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 500;
+      color: #0f5c4a;
+      flex-shrink: 0;
+    }
+
+    .doctor-info p { font-size: 14px; font-weight: 500; margin-bottom: 2px; }
+    .doctor-info span { font-size: 12px; color: #888; }
+
+    .status-badge {
+      background: #e1f5ee;
+      color: #0f6e56;
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    .next-slot { background: #f0f7f5; border-radius: 8px; padding: 10px 14px; }
+    .next-slot p { font-size: 12px; color: #888; margin-bottom: 4px; }
+    .next-slot strong { font-size: 14px; font-weight: 500; }
+
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 1.5rem 2rem;
+      border-bottom: 0.5px solid #e0e0e0;
+      background: #fff;
+    }
+
+    .stat-item { text-align: center; }
+    .stat-num { font-family: 'Lora', serif; font-size: 1.6rem; font-weight: 500; color: #1a6b5a; }
+    .stat-label { font-size: 12px; color: #888; margin-top: 2px; }
+
+    .section { padding: 2rem; }
+
+    .section-header { margin-bottom: 1.5rem; }
+    .section-header h2 { font-family: 'Lora', serif; font-size: 1.2rem; font-weight: 500; margin-bottom: 4px; }
+    .section-header p { font-size: 14px; color: #888; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+    }
+
+    .service-card {
+      background: #fff;
+      border: 0.5px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 1.2rem;
+    }
+
+    .service-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: #e1f5ee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      color: #0f6e56;
+      font-size: 20px;
+    }
+
+    .service-name { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+    .service-desc { font-size: 12px; color: #888; line-height: 1.5; margin-bottom: 10px; }
+    .service-price { font-size: 13px; color: #1a6b5a; font-weight: 500; }
+
+    .team-section { padding: 2rem; background: #f0f7f5; }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 1.5rem;
+    }
+
+    .team-card {
+      background: #fff;
+      border: 0.5px solid #d0e8e3;
+      border-radius: 12px;
+      padding: 1.2rem;
+      text-align: center;
+    }
+
+    .team-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #d0ede6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 500;
+      color: #0f5c4a;
+      margin: 0 auto 12px;
+      font-family: 'Lora', serif;
+    }
+
+    .team-name { font-family: 'Lora', serif; font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+    .team-spec { font-size: 12px; color: #1a6b5a; }
+    .team-crm { font-size: 11px; color: #888; margin-top: 4px; }
+
+    .footer {
+      background: #0d3d31;
+      color: #aaa;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 13px;
+      margin-top: auto;
+    }
+
+    .footer span { color: #5dcaa5; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Clínica <span>Médica</span></div>
+    <div class="nav-links">
+      <a href="#">Serviços</a>
+      <a href="#">Equipe</a>
+      <a href="#">Convênios</a>
+      <a href="#">Contato</a>
+    </div>
+    <button class="btn-nav">Agendar consulta</button>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-left">
+      <h1>Cuidado com <em>você</em><br>começa aqui</h1>
+      <p>Atendimento humanizado com profissionais especializados. Consultas presenciais e online, com agendamento fácil e rápido.</p>
+      <div class="hero-btns">
+        <button class="btn-primary">Agendar agora</button>
+        <button class="btn-outline">Conhecer serviços</button>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">Próximos horários disponíveis</div>
+      <div class="doctor-row">
+        <div class="avatar">?</div>
+        <div class="doctor-info">
+          <p>Dr. ?</p>
+          <span>Clínico Geral</span>
+        </div>
+        <div class="status-badge">Disponível</div>
+      </div>
+      <div class="next-slot">
+        <p>Próximo horário livre</p>
+        <strong>Hoje, 15h30 — Presencial</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-num">+2.000</div>
+      <div class="stat-label">Pacientes atendidos</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">8</div>
+      <div class="stat-label">Especialidades</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">4.9</div>
+      <div class="stat-label">Avaliação média</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <h2>Nossos serviços</h2>
+      <p>Atendimento completo para toda a família</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-stethoscope" aria-hidden="true"></i></div>
+        <div class="service-name">Clínica Geral</div>
+        <div class="service-desc">Consultas de rotina, check-up e acompanhamento de saúde geral</div>
+        <div class="service-price">A partir de R$ 150</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-heart" aria-hidden="true"></i></div>
+        <div class="service-name">Cardiologia</div>
+        <div class="service-desc">Avaliação cardíaca completa com eletrocardiograma incluso</div>
+        <div class="service-price">A partir de R$ 250</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-brain" aria-hidden="true"></i></div>
+        <div class="service-name">Psicologia</div>
+        <div class="service-desc">Atendimento presencial e online para saúde mental</div>
+        <div class="service-price">A partir de R$ 180</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-eye" aria-hidden="true"></i></div>
+        <div class="service-name">Oftalmologia</div>
+        <div class="service-desc">Exame de vista completo e prescrição de lentes</div>
+        <div class="service-price">A partir de R$ 200</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="team-section">
+    <div class="section-header">
+      <h2>Nossa equipe</h2>
+      <p>Profissionais qualificados e humanizados</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">?</div>
+        <div class="team-name">Dr. ?</div>
+        <div class="team-spec">Clínico Geral</div>
+        <div class="team-crm">CRM xxxxx</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">?</div>
+        <div class="team-name">Dra. ?</div>
+        <div class="team-spec">Cardiologista</div>
+        <div class="team-crm">CRM xxxxx</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">?</div>
+        <div class="team-name">Dr. ?</div>
+        <div class="team-spec">Psicólogo</div>
+        <div class="team-crm">CRP xxxxx</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">?</div>
+        <div class="team-name">Dra. ?</div>
+        <div class="team-spec">Oftalmologista</div>
+        <div class="team-crm">CRM xxxxx</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p> Rua Xxxx, x-xxx — Centro &nbsp;|&nbsp; <span>(xx) xxxxx-xxxx</span></p>
+    <p style="margin-top:6px">Seg–Sex: 8h–18h &nbsp;|&nbsp; Sáb: 8h–12h</p>
+  </div>
+
+</body>
+</html>
