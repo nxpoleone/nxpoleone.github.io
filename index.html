@@ -7,14 +7,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
+ 
     body {
       font-family: 'Inter', sans-serif;
       background: #f9f9f7;
       color: #1a1a1a;
       min-height: 100vh;
     }
-
+ 
     nav {
       display: flex;
       align-items: center;
@@ -23,13 +23,13 @@
       background: #fff;
       border-bottom: 0.5px solid #e0e0e0;
     }
-
+ 
     .logo {
       font-family: 'Playfair Display', serif;
       font-size: 1.1rem;
       font-weight: 500;
     }
-
+ 
     .nav-links { display: flex; gap: 24px; }
     .nav-links a {
       color: #666;
@@ -37,12 +37,12 @@
       text-decoration: none;
     }
     .nav-links a:hover { color: #1a1a1a; }
-
+ 
     .hero {
       padding: 5rem 2.5rem 3rem;
       max-width: 700px;
     }
-
+ 
     .hero-tag {
       display: inline-block;
       background: #e8f5e9;
@@ -52,7 +52,7 @@
       border-radius: 20px;
       margin-bottom: 1.2rem;
     }
-
+ 
     .hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: 2.8rem;
@@ -60,7 +60,7 @@
       line-height: 1.2;
       margin-bottom: 1rem;
     }
-
+ 
     .hero p {
       color: #666;
       font-size: 16px;
@@ -68,13 +68,13 @@
       margin-bottom: 2rem;
       max-width: 520px;
     }
-
+ 
     .hero-contact {
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
     }
-
+ 
     .btn-contact {
       background: #1a1a1a;
       color: #fff;
@@ -83,7 +83,7 @@
       border-radius: 8px;
       font-size: 14px;
     }
-
+ 
     .btn-github {
       background: transparent;
       color: #1a1a1a;
@@ -93,11 +93,11 @@
       font-size: 14px;
       border: 1px solid #ccc;
     }
-
+ 
     .section {
       padding: 2rem 2.5rem 4rem;
     }
-
+ 
     .section h2 {
       font-size: 1rem;
       font-weight: 500;
@@ -106,13 +106,13 @@
       letter-spacing: 1px;
       margin-bottom: 1.5rem;
     }
-
+ 
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 16px;
     }
-
+ 
     .project-card {
       background: #fff;
       border: 0.5px solid #e0e0e0;
@@ -123,9 +123,9 @@
       display: block;
       transition: border-color 0.2s;
     }
-
+ 
     .project-card:hover { border-color: #aaa; }
-
+ 
     .project-thumb {
       width: 100%;
       height: 160px;
@@ -134,12 +134,13 @@
       justify-content: center;
       font-size: 3rem;
     }
-
+ 
     .thumb-pizzaria { background: #1a0a00; }
     .thumb-clinica { background: #f0f7f5; }
-
+    .thumb-napdf { background: #0d1b2a; }
+ 
     .project-info { padding: 1.2rem; }
-
+ 
     .project-tag {
       font-size: 11px;
       color: #999;
@@ -147,20 +148,20 @@
       letter-spacing: 0.5px;
       margin-bottom: 6px;
     }
-
+ 
     .project-name {
       font-size: 16px;
       font-weight: 500;
       margin-bottom: 6px;
     }
-
+ 
     .project-desc {
       font-size: 13px;
       color: #666;
       line-height: 1.5;
       margin-bottom: 14px;
     }
-
+ 
     .project-link {
       font-size: 13px;
       color: #1a1a1a;
@@ -169,13 +170,18 @@
       align-items: center;
       gap: 4px;
     }
-
+ 
+    .project-links-row {
+      display: flex;
+      gap: 16px;
+    }
+ 
     .skills-list {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
     }
-
+ 
     .skill-tag {
       background: #fff;
       border: 0.5px solid #e0e0e0;
@@ -184,7 +190,7 @@
       font-size: 13px;
       color: #444;
     }
-
+ 
     footer {
       background: #1a1a1a;
       color: #aaa;
@@ -192,10 +198,10 @@
       padding: 1.5rem;
       font-size: 13px;
     }
-
+ 
     footer a { color: #ccc; text-decoration: none; }
     footer a:hover { color: #fff; }
-
+ 
     .divider {
       height: 0.5px;
       background: #e0e0e0;
@@ -204,7 +210,7 @@
   </style>
 </head>
 <body>
-
+ 
   <nav>
     <div class="logo">Napoleone</div>
     <div class="nav-links">
@@ -213,7 +219,7 @@
       <a href="mailto:napoleonejp.dev@gmail.com">Contato</a>
     </div>
   </nav>
-
+ 
   <div class="hero">
     <div class="hero-tag">Disponível para freelas</div>
     <h1>Desenvolvedor<br>Web Front-end</h1>
@@ -223,13 +229,23 @@
       <a href="https://github.com/nxpoleone" target="_blank" class="btn-github">Ver GitHub</a>
     </div>
   </div>
-
+ 
   <div class="divider"></div>
-
+ 
   <div class="section" id="projetos">
     <h2>Projetos</h2>
     <div class="projects-grid">
-
+ 
+      <div class="project-card">
+        <div class="project-thumb thumb-napdf">📄</div>
+        <div class="project-info">
+          <div class="project-tag">App · PWA / JavaScript</div>
+          <div class="project-name">NaPDF — Scanner de Bolso</div>
+          <div class="project-desc">App instalável que transforma fotos do celular em PDF, direto do navegador — sem loja de aplicativo. Funciona offline graças a service worker e cache local.</div>
+          <a href="https://napdf.netlify.app" target="_blank" class="project-link">Testar agora →</a>
+        </div>
+      </div>
+ 
       <a href="./pizzaria/" class="project-card">
         <div class="project-thumb thumb-pizzaria">🍕</div>
         <div class="project-info">
@@ -239,7 +255,7 @@
           <div class="project-link">Ver projeto →</div>
         </div>
       </a>
-
+ 
       <a href="./clinica/" class="project-card">
         <div class="project-thumb thumb-clinica">🏥</div>
         <div class="project-info">
@@ -249,28 +265,30 @@
           <div class="project-link">Ver projeto →</div>
         </div>
       </a>
-
+ 
     </div>
   </div>
-
+ 
   <div class="divider"></div>
-
+ 
   <div class="section" id="skills">
     <h2>Skills</h2>
     <div class="skills-list">
       <span class="skill-tag">HTML</span>
       <span class="skill-tag">CSS</span>
       <span class="skill-tag">JavaScript</span>
+      <span class="skill-tag">PWA</span>
       <span class="skill-tag">Git & GitHub</span>
       <span class="skill-tag">Design Responsivo</span>
       <span class="skill-tag">Google Fonts</span>
       <span class="skill-tag">Manutenção</span>
     </div>
   </div>
-
+ 
   <footer>
     <p>Feito por <a href="https://github.com/nxpoleone">Napoleone</a> · <a href="mailto:napoleonejp.dev@gmail.com">napoleonejp.dev@gmail.com</a></p>
   </footer>
-
+ 
 </body>
 </html>
+ 
